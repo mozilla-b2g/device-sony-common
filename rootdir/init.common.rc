@@ -399,3 +399,10 @@ on property:persist.radio.multisim.config=dsds
 on property:init.svc.wpa_supplicant=stopped
     stop dhcpcd
 
+service fakebattery /system/bin/fakebattery
+    class main
+    user root
+
+service sensorservice /system/bin/sensorservice
+    class main
+    user root
