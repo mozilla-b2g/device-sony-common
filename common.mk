@@ -279,3 +279,7 @@ PRODUCT_PACKAGES += \
 # for Gecko to support virtual storage
 PRODUCT_COPY_FILES += \
     device/sony/common/rootdir/system/etc/volume.cfg:system/etc/volume.cfg
+
+# for Gecko to support physical buttons
+PRODUCT_COPY_FILES += \
+    device/sony/common/rootdir/system/usr/keylayout/qpnp_pon.kl:system/usr/keylayout/qpnp_pon.kl
