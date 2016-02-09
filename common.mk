@@ -268,3 +268,10 @@ ENABLE_LIBRECOVERY := true
 PRODUCT_PACKAGES += \
     init.sh \
     librecovery
+
+# for Gecko to support NFC
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.moz.nfc.enabled=true
+
+PRODUCT_PACKAGES += \
+    nfcd
