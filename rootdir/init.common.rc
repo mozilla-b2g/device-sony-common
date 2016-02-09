@@ -406,3 +406,7 @@ service fakebattery /system/bin/fakebattery
 service sensorservice /system/bin/sensorservice
     class main
     user root
+
+on property:init.svc.b2g=running
+    write /sys/class/leds/lcd-backlight/brightness 128
+    write /sys/class/leds/wled:backlight/brightness 128
