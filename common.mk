@@ -156,7 +156,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Platform specific default properties
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mtp
+    persist.sys.usb.config=mass_storage
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.qmi.adb_logmask=0
@@ -254,3 +254,46 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.qualcomm.sns.daemon=0 \
     debug.qualcomm.sns.hal=0 \
     debug.qualcomm.sns.libsensor1=0
+
+# for Gecko to support virtual home button
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.moz.has_home_button=0
+
+# for Gecko to boot to recovery
+# Ensure your fstab has a /persist partition
+RECOVERY_EXTERNAL_STORAGE := /data/media/0
+export USE_SET_METADATA := true
+ENABLE_LIBRECOVERY := true
+
+PRODUCT_PACKAGES += \
+    init.sh \
+    librecovery
+
+# for Gecko to support NFC
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.moz.nfc.enabled=true
+
+PRODUCT_PACKAGES += \
+    nfcd
+
+# for Gecko to support virtual storage
+PRODUCT_COPY_FILES += \
+    device/sony/common/rootdir/system/etc/volume.cfg:system/etc/volume.cfg
+
+# for Gecko to support physical buttons
+PRODUCT_COPY_FILES += \
+    device/sony/common/rootdir/system/usr/keylayout/qpnp_pon.kl:system/usr/keylayout/qpnp_pon.kl
+
+# for Gecko to support Time on reboot
+PRODUCT_COPY_FILES += \
+    hardware/sony/timekeep/gecko/TimeKeepService.js:system/b2g/distribution/bundles/timekeep/TimeKeepService.js \
+    hardware/sony/timekeep/gecko/chrome.manifest:system/b2g/distribution/bundles/timekeep/chrome.manifest
+
+# for Gecko to support Camera
+PRODUCT_PACKAGES += \
+    libandroid \
+    fakebattery
+
+# For Gecko to support Bluetooth
+PRODUCT_PACKAGES += \
+    bluetooth.default
