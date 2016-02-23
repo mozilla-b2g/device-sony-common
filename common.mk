@@ -293,3 +293,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libandroid \
     fakebattery
+
+# For Gecko to support Bluetooth
+PRODUCT_PACKAGES += \
+    bluetooth.default
