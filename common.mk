@@ -51,11 +51,11 @@ PRODUCT_COPY_FILES += \
 
 # Common etc
 PRODUCT_COPY_FILES += \
-    device/sony/common/rootdir/system/etc/audio_effects.conf:system/vendor/etc/audio_effects.conf \
+    device/sony/common/rootdir/system/vendor/etc/audio_effects.conf:system/vendor/etc/audio_effects.conf \
     device/sony/common/rootdir/system/etc/gps.conf:system/etc/gps.conf \
     device/sony/common/rootdir/system/etc/nfcee_access.xml:system/etc/nfcee_access.xml \
     device/sony/common/rootdir/system/etc/sec_config:system/etc/sec_config \
-    device/sony/common/rootdir/system/etc/sensors_settings:system/etc/sensors_settings
+    device/sony/common/rootdir/system/etc/sensors/sensors_settings:system/etc/sensors/sensors_settings
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -214,6 +214,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Fluencetype can be "fluence" or "fluencepro" or "none"
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.audio.fluence.voicecall=true \
+    persist.audio.fluence.voicecomm=true \
     persist.audio.fluence.voicerec=false \
     persist.audio.fluence.speaker=true \
     media.aac_51_output_enabled=true
@@ -243,10 +244,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     camera.disable_zsl_mode=0 \
     persist.camera.HAL3.enabled=1 \
     persist.camera.ois.disable=0
-
-# Sensors
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.qti.sensors.dpc=true
 
 # Sensors debug
 PRODUCT_PROPERTY_OVERRIDES += \
