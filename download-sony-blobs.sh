@@ -1,8 +1,8 @@
 #!/bin/sh
 
-ZIP_FILE="SW_binaries_for_Xperia_AOSP_L_MR1_v17.zip"
+ZIP_FILE="SW_binaries_for_Xperia_AOSP_L_MR1_v19a.zip"
 URL_BASE="http://dl-developer.sonymobile.com/eula"
-EULA_URL="${URL_BASE}/SW_binaries_for_Xperia_AOSP_L_MR1_v17_EULA.html"
+EULA_URL="${URL_BASE}/SW_binaries_for_Xperia_AOSP_L_MR1_v19a_EULA.html"
 
 NOW=$(($(date +"%s") * 1000))
 TOMORROW=$((${NOW} + 1000 * 60 * 60 * 24 * 1))
